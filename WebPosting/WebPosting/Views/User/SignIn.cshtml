@@ -1,0 +1,50 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model WebPosting.Models.UserModel
+
+@{
+    ViewData["Title"] = "Sign In";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Sign In</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Shared/Styles/main-style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <h2 class="main-page-header">@ViewData["Title"]</h2>
+
+    <form asp-action="Create" asp-controller="User" asp-anti-forgery="true">
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group sign-in-container">
+            <label asp-for="Name" class="sign-in-container-element"></label>
+            <input type="text" asp-for="Name" class="form-control sign-in-container-element-input">
+            <span asp-validation-for="Name"></span>
+        </div>
+
+        <div class="form-group sign-in-container">
+            <label asp-for="Password" class="sign-in-container-element"></label>
+            <input type="password" asp-for="Password" class="form-control sign-in-container-element-input">
+            <span asp-validation-for="Password"></span>
+        </div>
+
+        <div class="form-group sign-in-container">
+            <label asp-for="Email" class="sign-in-container-element"></label>
+            <input type="text" asp-for="Email" class="form-control sign-in-container-element-input">
+            <span asp-validation-for="Email"></span>
+        </div>
+
+        <div class="form-group button-container">
+            <input type="submit" value="Let's go" class="btn btn-primary button-container-element">
+        </div>
+    </form>
+
+    <div class="bottom-banner">2020 © EPAM Systems</div>
+
+</body>
+</html>
