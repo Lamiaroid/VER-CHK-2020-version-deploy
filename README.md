@@ -27,6 +27,7 @@ You can: <br/>
 -view any article simply by clicking on it in the articles list;<br/>
 -post comments (if you have already logged in);<br/>
 -receive forgotten passwords by email (if you have already set sender password and login);<br/>
+-view your user name (if you have already logged in);<br/>
 <br/>
 You cannot:<br/>
 -create accounts with the same names or emails;<br/>
