@@ -11,11 +11,13 @@ Open project in Visual Studio and Start;<br/>
 
 # ***** REMARKS *****
 If you want to enable password restoration by email function, you should change the following lines in ArticleService.cs to your login and password and enable "Less secure apps to access Gmail" option in your google account.<br/>
-+ // take your login<br/>
-+ const string SenderLogin = "test@gmai.com";<br/>
-<br/>
-+ // take your password<br/>
-+ const string SenderPassword = "admin";<br/>
+```diff
++ // take your login
++ const string SenderLogin = "test@gmai.com";
+
++ // take your password
++ const string SenderPassword = "admin";
+```
 
 # ***** CAPABILITIES *****
 You can: <br/>
