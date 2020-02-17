@@ -1,0 +1,56 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model WebPosting.Models.IndexViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Article</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Shared/Styles/main-style.css" rel="stylesheet" type="text/css">
+    <script src="~/Shared/Scripts/utilities.js"></script>
+</head>
+<body>
+
+    @foreach (var item in Model.Articles)
+    {
+        <h2 class="main-page-header">@item.Title</h2>
+        <div class="article-info">Category: @item.Category</div>
+        <div class="article-info">Created By: @item.CreatedUser</div>
+        <div class="article-info">Creation Date: @item.CreatedDate</div>
+        <div class="article-content">@item.Content</div>
+
+        <h2>Comments</h2>
+
+        @foreach (var comment in Model.Comments)
+        {
+            <div class="form-group">
+                <div class="comment-author">@comment.Name</div>
+                <div>@comment.Text</div>
+            </div>
+        }
+
+        <form asp-action="PostComment" asp-controller="Home">
+            <div class="form-group">
+                <input type="text" class="form-control" name="commentText">
+                <input type="hidden" class="form-control" name="articleTitle" value="@item.Title">
+                <input type="hidden" id="comment-new-author" class="form-control" name="userName">
+                <div class="button-container">
+                    <input type="submit" value="Submit" class="btn btn-primary button-container-element">
+                </div>
+            </div>
+        </form>
+    }
+
+    <script>changeInputValue("comment-new-author");</script>
+
+    <div class="back-to-articles">
+        <a asp-controller="Home" asp-action="Index">Back to articles list</a>
+    </div>
+
+    <div class="bottom-banner">2020 © EPAM Systems</div>
+
+</body>
+</html>

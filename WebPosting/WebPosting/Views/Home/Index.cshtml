@@ -1,0 +1,93 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model WebPosting.Models.IndexViewModel
+
+@{
+    ViewData["Title"] = "Articles List";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Articles List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Shared/Styles/main-style.css" rel="stylesheet" type="text/css">
+    <script src="~/Shared/Scripts/utilities.js"></script>
+</head>
+<body>
+
+    <h2 class="main-page-header">@ViewData["Title"]</h2>
+
+    <div class="nav-authorization" id="login-status-field"></div>
+
+    <script>getMainPageAuthFragment();</script>
+
+    <form method="get">
+        <div class="search-bar-container">
+            <div class="search-bar-container-element-selector">
+                <select class="form-control" size="1" name="filterName">
+                    <option disabled>Search By</option>
+                    <option selected value="PartialTitle">Partial title occurrence</option>
+                    <option value="CreatedUser">User name</option>
+                    <option value="Category">Category</option>
+                </select>
+            </div>
+
+            <div class="search-bar-container-element-input">
+                <input type="text" name="searchingQuery" class="form-control search-bar">
+            </div>
+
+            <div class="search-bar-container-element-button">
+                <input type="submit" value="Search" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
+
+    <div class="table-container">
+        <div class="table-container-element-header">Title</div>
+        <div class="table-container-element-header">Created By</div>
+        <div class="table-container-element-header">Category</div>
+    </div>
+
+    @foreach (var item in Model.Articles)
+    {
+        <div class="table-container">
+            <div class="table-container-element-big">
+                <form method="get" asp-controller="Home" asp-action="ShowArticle">
+                    <input type="hidden" name="articleTitle" value="@item.Title">
+                    <button type="submit" class="button-invisible">
+                        <div class="table-container-element-big-container">
+                            <div class="table-container-element-big-container-element">@item.Title</div>
+                            <div class="table-container-element-big-container-element">@item.CreatedUser</div>
+                            <div class="table-container-element-big-container-element">@item.Category</div>
+                        </div>
+                    </button>
+                </form>
+            </div>
+
+            <div class="table-container-element">
+                <form method="post" asp-controller="Home" asp-action="DisplayEditArticlePage">
+                    <input type="hidden" name="articleTitle" value="@item.Title">
+                    <input type="submit" value="Edit" class="btn-warning">
+                </form>
+            </div>
+
+            <div class="table-container-element">
+                <form method="post" asp-controller="Home" asp-action="Remove">
+                    <input type="hidden" name="articleTitle" value="@item.Title">
+                    <input type="submit" value="Remove" class="btn-danger">
+                </form>
+            </div>
+        </div>
+    }
+
+    <a asp-controller="Home" asp-action="Create">
+        <div class="article-creation">Create a new article</div>
+    </a>
+
+    <div class="bottom-banner">2020 © EPAM Systems</div>
+
+</body>
+</html>

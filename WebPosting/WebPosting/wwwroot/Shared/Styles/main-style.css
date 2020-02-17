@@ -1,0 +1,121 @@
+﻿.main-page-header {
+    text-align: center;
+}
+
+.nav-authorization {
+    text-align: right;
+}
+
+.search-bar-container {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    justify-content: right;
+}
+
+.search-bar-container-element-selector {
+    flex-basis: 30%;
+}
+
+.search-bar-container-element-input {
+    flex-basis: 50%;
+}
+
+.search-bar-container-element-button {
+    flex-basis: 20%;
+}
+
+.search-bar {
+    width: 100%;
+}
+
+.bottom-banner {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.button-invisible {
+    border-width: 0;
+    background-color: white;
+    width: 100%;
+}
+
+.table-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.table-container-element-header {
+    flex-basis: 25%;
+    text-align: center;
+}
+
+.table-container-element-big {
+    flex-basis: 75%;
+}
+
+.table-container-element {
+    flex-basis: 5%;
+}
+
+.table-container-element-big-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.table-container-element-big-container-element {
+    flex-basis: 33.33%;
+    text-align: center;
+}
+
+.article-creation {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.button-container-element {
+    width: 10%;
+}
+
+.sign-in-container {
+    display: flex;
+    justify-content: center;
+}
+
+.sign-in-container-element {
+    flex-basis: 7%;
+}
+
+.sign-in-container-element-input {
+    flex-basis: 40%;
+}
+
+.forgot-password-helper,
+.back-to-articles {
+    text-align: center;
+}
+
+.article-info {
+    text-align: right;
+}
+
+.article-content {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: deepskyblue;
+}

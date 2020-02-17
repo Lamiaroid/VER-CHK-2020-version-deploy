@@ -1,0 +1,57 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model WebPosting.Models.ArticleModel
+
+@{
+    ViewData["Title"] = "Edit Article";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Edit Article</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Shared/Styles/main-style.css" rel="stylesheet" type="text/css">
+    <script src="~/Shared/Scripts/utilities.js"></script>
+</head>
+<body>
+
+    <h2 class="main-page-header">@ViewData["Title"]</h2>
+
+    <form method="post" asp-action="Edit" asp-controller="Home">
+        <input type="hidden" asp-for="Id">
+        <div class="form-group">
+            <label asp-for="Content"></label>
+            <input type="text" asp-for="Content" value="@Model.Content" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Category"></label>
+            <input type="text" asp-for="Category" value="@Model.Category" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <input type="hidden" id="article-author" value="@Model.CreatedUser" asp-for="CreatedUser" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <input type="hidden" name="articleTitle" value="@Model.Title" class="form-control">
+        </div>
+
+        <div class="button-container">
+            <input type="submit" value="Submit" class="btn btn-primary button-container-element">
+        </div>
+    </form>
+
+    <script>changeInputValue("article-author");</script>
+
+    <div class="back-to-articles">
+        <a asp-controller="Home" asp-action="Index">Back to articles list</a>
+    </div>
+
+    <div class="bottom-banner">2020 © EPAM Systems</div>
+
+</body>
+</html>
